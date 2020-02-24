@@ -1,43 +1,31 @@
 {
-  "name": "adult-swim-stunt-page",
+  "name": "blackbird-blackbird",
   "version": "69.69.69",
   "private": true,
   "description": "",
-  "author": "adult swim",
+  "author": "deliaevan1@gmail.com",
   "scripts": {
-    "start": "gulp",
-    "stage": "gulp staging",
-    "deploy": "gulp production"
+    "build": "webpack -p --env.prod",
+    "dev": "webpack-dev-server"
   },
   "devDependencies": {
-    "babel-plugin-lodash": "^2.2.2",
-    "babel-preset-es2015": "^6.6.0",
-    "babel-preset-react": "^6.5.0",
-    "babelify": "^7.3.0",
-    "browser-sync": "^2.11.2",
-    "browserify": "^13.0.1",
-    "del": "^2.2.0",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-changed": "^1.3.0",
-    "gulp-cli": "^1.2.1",
-    "gulp-concat": "^2.6.0",
-    "gulp-less": "^3.0.5",
-    "gulp-notify": "^2.2.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sftp": "^0.1.5",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-uglify": "^1.5.3",
-    "gulp-watch": "^4.3.5",
-    "lodash": "^4.7.0",
-    "proxy-middleware": "^0.15.0",
-    "through2": "^2.0.1",
-    "yargs": "^4.3.2"
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "rimraf": "^3.0.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.8.0",
+    "three": "^0.113.2"
   },
   "dependencies": {
-    "imagesloaded": "^4.1.0",
-    "load-images": "^0.1.1",
-    "seethru": "^3.0.0",
-    "soundmanager2": "^2.97.20150601-a"
+    "jquery": "^3.4.1"
   }
 }

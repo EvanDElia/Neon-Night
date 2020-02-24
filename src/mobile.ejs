@@ -24,23 +24,15 @@
         <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
-        <div id="fb-root"></div>
-        <script>(function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
-
-        <audio id="audioElem"><source id="audioSource" src="" type="audio/mpeg" /></audio>
-        <div id="black">
-            <div id="text1">~ Welcome ~<br/>Please turn on your volume<br/>~ Loading ~</div>
-            <iiv id="text2">Neon Night</div>
+        <div id="overlay">
+          <div>
+            <button id="startButton">Loading...</button>
+            <p>Audio playback requires user interaction. Also turn off Silent Mode</p>
+          </div>
         </div>
-        <button id="start">Start</button>
         <div id="progress"></div>
         <div id="controls_container">
+            <div class=left>
             <div id="info"></div>
             <div id="controls_inner">
                 <svg id="back" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
@@ -60,42 +52,7 @@
                       <image id="hover" x="8" width="24" height="32" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAgCAMAAAA/gEgKAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABlVBMVEUAAAD5mMrzicBoPlSoco75mMr2a7P3e7v4hsH2ZbDYfKtuQ1moco75lMj2W6v3brX2aLLbfq5bNEj5lMj2Xaz3b7X4fbz3bLTlgrVUMEOrcY/5lsn2Xqz3cbb4gL7ef7BrQVf3cbb4gb72a7PYfaxdOEv4gb72arLmgLVPLT/jf7JrQVf2aLHZfKxnPlP2ZrDifbFUMkPkfbNfOU32ZK/ae6xqQVb2Yq7gfK9TL0L2ZK/oe7NaNUmscpD2Ya7Zdqm6cpelaIekbYnwm8eZaIH4iMLsmsSYaYH2Z7HEcpyWXXqJU2+kcYv2a7LWeqpHJziudJL2abLSeqdMIzjFdJ5NKzz2brTReqdLLDzVfKo+HS7Hdp9BJTP2cLXOeaVQMEDWfas3ICz3c7fId6E6Iy/4gL72dLfJeKJYMkb3crb3fbz3dLfWf6wzHin5lsn3erv3b7XMeaQTExOqcY/5lcn4icL1bbTBc5tPL0D5k8j3brT5nMzzkMNeOk2oco75m8z4hcD1Uqb1U6f1WKn1U6b1VqgAAABnGCm8AAAAgXRSTlMAi7QbD4j459D7pCYSnf71+qYRmf714vaoEhGW/vPcpB/y2/eiG9z5thO0I/qpIPq4E70i+7An/bwX/MofEf3HXwgPFw3IFg76ozkDEPiqFBH5owSPE/WaFZ0FiQzzkBSYB/GDB93vgxHy5PCJCJfo9I0CFJjH9YIUovZzlxIMdtKOsA9XAAAAAWJLR0QAiAUdSAAAAAlwSFlzAAAuIwAALiMBeKU/dgAAARBJREFUKM9t09VDQjEUx/FjXsyLig2CoiKKjR0gYHdgd4stdv8u+n87H+929vp52Hb2HSUlp5C0UtPSoZElIzNLguycXOikwZqXL0GBDYVUBBSXlJqgrNwOB1VAiNMlQyVVwQDc1TUK1P4DPHVeHuCpb+ABvsYmHtDc0soDfG3tPMDf0ckDurp7eEBvX7+AARUwGAgOUYgBwBKmCAeJ4REaZWBsfGKSplSYnpkVm88pML+wyB7XvRRlL7i8ssqORF9b54Zo6Bub3NiNre0d7qF+HLt7XAzG/sGhEsMR8Ht8cirnc0Yx4Pzi0hzclU0Ed42b2ztzovF7u0j04fHpWYo6/pLAK729f8jf4PNLs37/AdO2qgj6uxQgAAAAAElFTkSuQmCC"/>
                     </svg>
             </div>
+            </div>
         </div>
-
-        <div id="share" />
-            <div class="fb-share-button" data-href="http://pixelpusher.ninja/three/blackbird/" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fpixelpusher.ninja%2Fthree%2Fblackbird%2F&amp;src=sdkpreparse">Share</a></div>
-        </div>
-
-        <!-- PUT ALL YOUR THREE JS IMPORTS HERE -->
-
-        <script src="http://z.cdn.turner.com/adultswim/tools/lib/jquery/1.11.3/jquery.min.js"></script>
-        <script src="http://z.cdn.turner.com/adultswim/big/home/three/js/minivents.js"></script>
-        <script>
-            var events = new Events();
-        </script>
-        <script src='http://z.cdn.turner.com/adultswim/big/home/three/three.js'></script>
-
-        <script src="http://z.cdn.turner.com/adultswim/big/home/three/js/shaders/ConvolutionShader.js"></script>
-        <script src="http://z.cdn.turner.com/adultswim/big/home/three/js/shaders/BleachBypassShader.js"></script>
-        <script src="http://z.cdn.turner.com/adultswim/big/home/three/js/shaders/CopyShader.js"></script>
-
-        <script src="http://z.cdn.turner.com/adultswim/big/home/three/js/postprocessing/EffectComposer.js"></script>
-        <script src="http://z.cdn.turner.com/adultswim/big/home/three/js/postprocessing/RenderPass.js"></script>
-        <script src="http://z.cdn.turner.com/adultswim/big/home/three/js/postprocessing/MaskPass.js"></script>
-        <script src="http://z.cdn.turner.com/adultswim/big/home/three/js/postprocessing/BloomPass.js"></script>
-        <script src="http://z.cdn.turner.com/adultswim/big/home/three/js/postprocessing/ShaderPass.js"></script>
-
-        <script src="http://z.cdn.turner.com/adultswim/big/home/three/js/loaders/DDSLoader.js"></script>
-        <script src="http://z.cdn.turner.com/adultswim/big/home/three/js/loaders/MTLLoader.js"></script>
-        <script src='http://z.cdn.turner.com/adultswim/big/home/three/js/loaders/OBJLoader.js'></script>
-
-        <script src="http://z.cdn.turner.com/adultswim/big/home/three/js/controls/DeviceOrientationControls.js"></script>
-
-        <script src="media/AudioHandler.js"></script>
-
-        <!-- <script src="http://z.cdn.turner.com/adultswim/big/home/three/js/Detector.js"></script> -->
-
-        <script src="mobile.min.js"></script>
-
     </body>
 </html>

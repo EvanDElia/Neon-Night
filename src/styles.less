@@ -1,6 +1,4 @@
 
-@font-face { font-family: 'Bodoni'; src: url('media/Bodoni.otf') format('opentype');}
-
 html,body {
     height:100%;
 }
@@ -30,36 +28,25 @@ a {
     -webkit-appearance: slider-vertical;
 }
 
-#black{
-    width: 100%;
-    height: 100%;
-    background: black;
-    //display: flex;
-    z-index: 101;
-    position: absolute;
-    pointer-events: none;
+#overlay {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#text1{
-    position: relative;
-    top: 50%;
-    // height: 100%;
-    flex-basis: 100%;
-    font-size: 50px;
-    transform: translateY(-50%);
-    text-shadow: 2px 2px #999999;
-    font-family: 'Bodoni';
+#overlay > div > button {
+	height: 20px;
+	background: transparent;
+	color: #ffffff;
+	outline: 1px solid #ffffff;
+	border: 0px;
+	cursor: pointer;
 }
-#text2{
-    display: none;
-    position: relative;
-    top: 50%;
-    // height: 100%;
-    flex-basis: 100%;
-    font-size: 50px;
-    transform: translateY(-50%);
-    text-shadow: 2px 2px #999999;
-    font-family: 'Bodoni';
+
+#overlay > div > p {
+	color: #777777;
+	font-size: 12px;
 }
 
 #controls_container{
@@ -70,17 +57,17 @@ a {
     top: 10px;
     padding: 10px;
     max-width: 70%;
-    background-color: pink;
+    background-color: black;
     border-radius: 0px 10px 10px 0px;
-    justify-content: space-between;
+    justify-content: space-between;    
 
     #info {
         color:#fff;
-        font-family: 'Bodoni';
+        font-family: 'Helvetica';
         font-size: 24px;
         z-index: 98;
         .active {
-            color: #d70060;
+            color: pink;
         }
 
     }
