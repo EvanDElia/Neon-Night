@@ -134,7 +134,7 @@ var manager = new THREE.LoadingManager();
 
 manager.onLoad = function(){
     $.ajax({
-        url: "https://www.pixelpusher.ninja/three/blackbird/tracks.php?f=tracks",
+        url: "https://evandelia.com/blackbird/tracks.json",
         dataType: "json",
         success: function (response) {
             document.getElementById('startButton').innerHTML = 'Click to Play';
@@ -155,34 +155,34 @@ manager.onLoad = function(){
 var loader1 = new OBJLoader( manager );
 manager.addHandler( /\.dds$/i, new DDSLoader() );
                 var mtlLoader = new MTLLoader(manager);
-                mtlLoader.setPath( 'https://www.pixelpusher.ninja/three/blackbird/media/Roses/' );
+                mtlLoader.setPath( 'https://evandelia.com/blackbird/media/Roses/' );
                 mtlLoader.load( 'rose.mtl', function( materials ) {
                     materials.preload();
                     loader1.setMaterials( materials );
-                    loader1.setPath( 'https://www.pixelpusher.ninja/three/blackbird/media/Roses/' );
+                    loader1.setPath( 'https://evandelia.com/blackbird/media/Roses/' );
                     loader1.load( 'rose.obj', function ( object ) {
                         object1 = object;
-                        mtlLoader.setPath( 'https://www.pixelpusher.ninja/three/blackbird/media/Flowers/' );
+                        mtlLoader.setPath( 'https://evandelia.com/blackbird/media/flowers/' );
                         mtlLoader.load( 'Vase.mtl', function( materials ) {
                             materials.preload();
                             loader1.setMaterials( materials );
-                            loader1.setPath( 'https://www.pixelpusher.ninja/three/blackbird/media/Flowers/' );
+                            loader1.setPath( 'https://evandelia.com/blackbird/media/flowers/' );
                             loader1.load( 'Vase.obj', function ( object ) {
                                 object2 = object;
-                                mtlLoader.setPath( 'https://www.pixelpusher.ninja/three/blackbird/media/Flowers/' );
-                                mtlLoader.load( 'Flower vase.mtl', function( materials ) {
-                                    materials.preload();
-                                    loader1.setMaterials( materials );
-                                    loader1.setPath( 'https://www.pixelpusher.ninja/three/blackbird/media/Flowers/' );
-                                    loader1.load( 'Flower vase.obj', function ( object ) {
-                                        object3 = object;
-                                    } );
-                                });
+                                // mtlLoader.setPath( 'https://evandelia.com/blackbird/media/flowers/' );
+                                // mtlLoader.load( 'Flower vase.mtl', function( materials ) {
+                                //     materials.preload();
+                                //     loader1.setMaterials( materials );
+                                //     loader1.setPath( 'https://evandelia.com/blackbird/media/flowers/' );
+                                //     loader1.load( 'Flower vase.obj', function ( object ) {
+                                //         object3 = object;
+                                //     } );
+                                // });
                             } );
                         });
                     } );
                 });
-                loader1.setPath( 'https://www.pixelpusher.ninja/three/blackbird/media/Flowers/' );
+                loader1.setPath( 'https://evandelia.com/blackbird/media/flowers/' );
                 loader1.load( 'lotus.obj', function ( object ) {
                     object4 = object;
                 } );
@@ -199,7 +199,7 @@ function init(tracks) {
 
     scene = new THREE.Scene();
     var texture = new THREE.CubeTextureLoader() //cube texture of space
-                    .setPath( 'https://www.pixelpusher.ninja/three/blackbird/media/cube/Park2/' )
+                    .setPath( 'https://evandelia.com/blackbird/media/cube/Park2/' )
                     .load( [ 'posx.jpg', 'negx.jpg', 'posy.jpg', 'negy.jpg', 'posz.jpg', 'negz.jpg' ] );
     scene.background = texture;
 
@@ -268,19 +268,19 @@ function init(tracks) {
         scene.add(tempMesh);
         object_array.push(tempMesh);
     }
+    // for (var i = 0; i < 5; i++) {
+    //     tempMesh = object3.clone();
+    //     tempMesh.position.x = Math.random() * 3000 - 1500;
+    //     tempMesh.position.y = Math.random() * 4000 - 2000;
+    //     tempMesh.position.z = Math.random() * 3000 - 1500;
+    //     tempMesh.rotation.x = Math.random() * 2 * Math.PI;
+    //     tempMesh.rotation.y = Math.random() * 2 * Math.PI;
+    //     tempMesh.rotation.z = Math.random() * 2 * Math.PI;
+    //     tempMesh.scale.x = tempMesh.scale.y = tempMesh.scale.z = Math.random() * 10;
+    //     scene.add(tempMesh);
+    //     object_array.push(tempMesh);
+    // }
     for (var i = 0; i < 5; i++) {
-        tempMesh = object3.clone();
-        tempMesh.position.x = Math.random() * 3000 - 1500;
-        tempMesh.position.y = Math.random() * 4000 - 2000;
-        tempMesh.position.z = Math.random() * 3000 - 1500;
-        tempMesh.rotation.x = Math.random() * 2 * Math.PI;
-        tempMesh.rotation.y = Math.random() * 2 * Math.PI;
-        tempMesh.rotation.z = Math.random() * 2 * Math.PI;
-        tempMesh.scale.x = tempMesh.scale.y = tempMesh.scale.z = Math.random() * 10;
-        scene.add(tempMesh);
-        object_array.push(tempMesh);
-    }
-    for (var i = 0; i < 50; i++) {
         tempMesh = object4.clone();
         tempMesh.position.x = Math.random() * 3000 - 1500;
         tempMesh.position.y = Math.random() * 4000 - 2000;
@@ -372,7 +372,7 @@ function render() {
     light8.position.x = Math.cos( time * 0.7 ) * d * volume * 44;
     light8.position.z = Math.cos( time * 0.5 ) * d * volume * 64;
     camera.position.z = camera.position.z + (Math.cos( time / 4 * 0.7 ) ); //move camera slightly
-    for (var i = 0; i < 20; i += 5){
+    for (var i = 0; i < 15; i += 5){
         object_array[i].rotation.x += Math.PI * volume / 100; //rotate objects based on volume
     }
     effectBloom.copyUniforms[ "opacity" ].value = volume*5; //bloom effect based on volume

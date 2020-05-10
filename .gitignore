@@ -1,0 +1,9 @@
+dist
+node_modules
+.config
+.DS_Store
+
+npm-debug.log*
+
+hidden.env
+.terraform
