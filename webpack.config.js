@@ -31,7 +31,7 @@ module.exports = (env = {}) => {
             rules: [
                 {
                     test: /\.m?js$/,
-                    exclude: /node_modules\/(?!three)/,
+                    exclude: /node_modules/,
                     loader: 'babel-loader',
                     query: {
 						compact: true,
